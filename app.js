@@ -1,7 +1,10 @@
 // Packages
 var express = require('express');
-var Promise = require('bluebird');
 var app = express();
+var path = require('path');
+
+app.use(express.static(path.join(__dirname, './app/views')));
+app.set('view engine', 'ejs');
 
 // External files
 var routes = require('./api/routes.js');
