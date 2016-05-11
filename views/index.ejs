@@ -9,10 +9,13 @@
 	</script>
 </head>
 <body>
-	<div id="app"></div>
+	<div id="app">
+		<span id="target" style="display: none;"><%= contract %></span>
+	</div>
 	<script type="text/javascript">
-		var temp = '<%= contract %>';
-		$('#app').html(JSON.stringify(temp));
+		var temp = $('#target').text();
+		var success = JSON.parse(temp);
+		window.contract = success;
 	</script>
 </body>
 </html>

@@ -6,7 +6,7 @@ var web3 = new Web3();
 var router = express.Router();
 
 router.get('/', function(req, res) {
-    Connect.connectToEth(function(result) {
+    Connect.connectToRelay(function(result) {
         if (result) {
         	res.render('index', 
         		{
@@ -16,20 +16,6 @@ router.get('/', function(req, res) {
             res.send("Connecting to Ethereum failed");
         }
     });
-});
-
-router.get('/relay_test', function(req, res) {
-	res.send(Connect);
-});
-
-router.get('/relay_contract', function(req, res) {
-	Connect.getRelayContract(function(result) {
-		if (result) {
-			res.send(result);
-		} else {
-			res.send("Error retrieving relay contract");
-		}
-	});
 });
 
 module.exports = router;
